@@ -9,7 +9,7 @@ import (
 
 func Test指定したネームスペースのPodの一覧を取得することができる(t *testing.T) {
 
-	podGatewayMock := &PodUsecaseMock{}
+	podGatewayMock := &PodGatewayMock{}
 	podGatewayMock.On("FindPods", "").Return(
 		domain.Pods{
 			Pods: []domain.Pod{
@@ -37,7 +37,7 @@ func Test指定したネームスペースのPodの一覧を取得すること�
 	assert.Equal(t, expected, actual)
 }
 
-func (p PodUsecaseMock) FindPods(namespace string) domain.Pods {
+func (p PodGatewayMock) FindPods(namespace string) domain.Pods {
 	result := p.Called(namespace).Get(0)
 	return result.(domain.Pods)
 }

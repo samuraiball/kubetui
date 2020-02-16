@@ -2,6 +2,10 @@ package usecase_test
 
 import "github.com/stretchr/testify/mock"
 
-type PodUsecaseMock struct {
+type PodGatewayMock struct {
+	mock.Mock
+}
+
+type ContextGatewayMock struct {
 	mock.Mock
 }
